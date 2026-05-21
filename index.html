@@ -28,6 +28,7 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="header-actions">
+        <a class="phone-link" href="tel:+48790581583">790 581 583</a>
         <a class="btn btn-primary btn-small" href="#formularz">Umów pomiar</a>
       </div>
     </div>
@@ -96,12 +97,12 @@
             <i data-icon="bars"></i>
             <div>
               <h2>Ile produkcji możesz tracić?</h2>
-              <p>Szybka estymacja miesięcznych strat przy wyłączaniu falownika — od razu w kWh i w zł.</p>
+              <p>Szybka estymacja miesięcznych strat. Wpisz liczbę wyłączeń — 1 szt. = 15 minut przerwy.</p>
             </div>
           </div>
           <div class="inputs-grid inputs-grid-4">
             <label>Moc instalacji <span><input id="kwp" type="number" min="0" step="0.1" value="10" /> kWp</span></label>
-            <label>Wyłączeń dziennie <span><input id="hours" type="number" min="0" step="0.5" value="2.5" /> h</span></label>
+            <label>Ilość wyłączeń dziennie <span><input id="outages" type="number" min="0" step="1" value="10" /> szt.</span></label>
             <label>Dni w miesiącu <span><input id="days" type="number" min="0" step="1" value="22" /> dni</span></label>
             <label>Wartość 1 kWh <span><input id="price" type="number" min="0" step="0.01" value="1.00" /> zł</span></label>
           </div>
@@ -109,7 +110,7 @@
             <div class="calc-result calc-result-energy">
               <p>Szacowana utrata produkcji miesięcznie</p>
               <strong><span id="lossResult">451</span> kWh</strong>
-              <small>Wynik orientacyjny. Dokładną przyczynę ustalamy na podstawie pomiarów.</small>
+              <small><span id="outageInfo">Przeliczenie: 10 szt. × 15 min = 2,50 h przerwy dziennie.</span></small>
             </div>
             <div class="calc-result calc-result-money calc-result-spotlight">
               <p>Szacowana strata miesięcznie</p>
@@ -255,5 +256,65 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    (() => {
+      const kwp = document.getElementById('kwp');
+      const outages = document.getElementById('outages');
+      const days = document.getElementById('days');
+      const price = document.getElementById('price');
+      const lossResult = document.getElementById('lossResult');
+      const lossValueResult = document.getElementById('lossValueResult');
+      const priceLabel = document.getElementById('priceLabel');
+      const outageInfo = document.getElementById('outageInfo');
+
+      function formatNumber(value, min = 0, max = 0) {
+        return Number(value || 0).toLocaleString('pl-PL', {
+          minimumFractionDigits: min,
+          maximumFractionDigits: max
+        });
+      }
+
+      function updateOutageCalculator() {
+        if (!kwp || !outages || !days || !lossResult) return;
+
+        const outageCount = Math.max(0, Number(outages.value || 0));
+        const outageHours = outageCount * 0.25; // 1 wyłączenie = 15 min = 0,25 h
+        const monthlyLossKwh = Math.max(
+          0,
+          Math.round(Number(kwp.value || 0) * outageHours * Number(days.value || 0) * 0.82)
+        );
+        const energyPrice = Math.max(0, Number(price?.value || 0));
+        const monthlyLossPln = monthlyLossKwh * energyPrice;
+
+        lossResult.textContent = monthlyLossKwh.toLocaleString('pl-PL');
+
+        if (lossValueResult) {
+          lossValueResult.textContent = monthlyLossPln.toLocaleString('pl-PL', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          });
+        }
+
+        if (priceLabel) {
+          priceLabel.textContent = energyPrice.toLocaleString('pl-PL', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+        }
+
+        if (outageInfo) {
+          outageInfo.textContent =
+            `Przeliczenie: ${formatNumber(outageCount)} szt. × 15 min = ${formatNumber(outageHours, 2, 2)} h przerwy dziennie.`;
+        }
+      }
+
+      [kwp, outages, days, price].forEach((input) => {
+        if (input) input.addEventListener('input', updateOutageCalculator);
+      });
+
+      updateOutageCalculator();
+    })();
+  </script>
+
 </body>
 </html>
