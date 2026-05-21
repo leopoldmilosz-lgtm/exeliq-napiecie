@@ -59,6 +59,62 @@
   [kwp, outages, days, price].forEach((input) => input && input.addEventListener('input', updateLoss));
   updateLoss();
 
+
+
+  const leadForm = document.getElementById('formularz');
+  if (leadForm) {
+    leadForm.addEventListener('submit', async (event) => {
+      const action = leadForm.getAttribute('action') || '';
+      const redirectUrl = leadForm.dataset.redirect || 'dziekujemy.html';
+      const submitButton = leadForm.querySelector('button[type="submit"]');
+
+      // Formspree endpoint must be replaced before publication.
+      if (!action || action.includes('TWOJ_ID_FORMULARZA')) {
+        event.preventDefault();
+        alert('Formularz nie ma jeszcze podmienionego endpointu Formspree.');
+        return;
+      }
+
+      event.preventDefault();
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.dataset.originalText = submitButton.textContent;
+        submitButton.textContent = 'Wysyłanie...';
+      }
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: new FormData(leadForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          window.location.href = new URL(redirectUrl, window.location.href).toString();
+          return;
+        }
+
+        let message = 'Nie udało się wysłać formularza. Spróbuj ponownie lub zadzwoń: 790 581 583.';
+        try {
+          const data = await response.json();
+          if (data && data.errors && data.errors[0] && data.errors[0].message) {
+            message = data.errors[0].message;
+          }
+        } catch (_) {}
+
+        alert(message);
+      } catch (_) {
+        alert('Nie udało się wysłać formularza. Spróbuj ponownie lub zadzwoń: 790 581 583.');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = submitButton.dataset.originalText || 'Wyślij zgłoszenie';
+        }
+      }
+    });
+  }
+
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');

@@ -26,3 +26,32 @@ action="https://formspree.io/f/TWOJ_ID_FORMULARZA"
 - `styles.css` — styl i układ
 - `script.js` — ruchome punkty, animacje, kalkulator strat
 - `assets/exeliq_.png` — właściwe logo EXELIQ Group
+
+
+## Konwersja Google Ads - formularz
+
+Dodano stronę podziękowania:
+
+```text
+https://napiecie.exeliq.pl/dziekujemy.html
+```
+
+W Google Ads ustaw konwersję formularza jako wejście na URL:
+
+```text
+URL zawiera: /dziekujemy.html
+```
+
+Formularz w `index.html` ma atrybut:
+
+```html
+data-redirect="dziekujemy.html"
+```
+
+Po poprawnym wysłaniu formularza do Formspree `script.js` przekieruje użytkownika na stronę podziękowania.
+
+Pamiętaj podmienić endpoint Formspree w `index.html`:
+
+```html
+action="https://formspree.io/f/TWOJ_ID_FORMULARZA"
+```
