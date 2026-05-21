@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnostyka napięcia PV | Falownik wyłącza się w słoneczne dni | EXELIQ Group</title>
+  <meta name="description" content="Falownik PV wyłącza się w słoneczne dni? Masz 253–257 V i tracisz produkcję? Diagnostyka napięcia, ustawienia falownika, przewód AC i raport do OSD. Poznań i Wielkopolska." />
+  <meta name="theme-color" content="#05090f" />
+  <meta property="og:title" content="Falownik PV wyłącza się w słoneczne dni?" />
+  <meta property="og:description" content="Diagnostyka wysokiego napięcia PV: pomiary L1/L2/L3, ustawienia falownika, przewód AC i raport do OSD." />
+  <meta property="og:type" content="website" />
+  <link rel="preload" href="assets/exeliq_.png" as="image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="EXELIQ Group">
+        <img src="assets/exeliq_.png" alt="EXELIQ Group" />
+      </a>
+      <nav class="nav-links" aria-label="Menu główne">
+        <a href="#oferta">Zakres</a>
+        <a href="#diagnostyka">Diagnostyka</a>
+        <a href="#pakiety">Pakiety</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="phone-link" href="tel:+48790581583">790 581 583</a>
+        <a class="btn btn-primary btn-small" href="#formularz">Umów pomiar</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span>Poznań i Wielkopolska · diagnostyka PV</div>
+          <h1>
+            <span>Falownik PV</span>
+            <span>wyłącza się</span>
+            <span>w słoneczne dni?</span>
+          </h1>
+          <p class="lead">Masz 253–257 V i tracisz produkcję?</p>
+          <p class="hero-text">Sprawdzimy, czy winna jest sieć, przewód AC czy ustawienia falownika. Wykonujemy pomiary, diagnostykę, korektę nastaw oraz raport techniczny do operatora.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#formularz">Umów diagnostykę</a>
+            <a class="btn btn-secondary" href="#oferta">Zobacz zakres usługi</a>
+          </div>
+          <div class="hero-badges" aria-label="Najważniejsze korzyści">
+            <div><i data-icon="shield"></i>Bezpieczne nastawy</div>
+            <div><i data-icon="gauge"></i>Pomiary L1/L2/L3</div>
+            <div><i data-icon="report"></i>Raport techniczny</div>
+            <div><i data-icon="trend"></i>Odzyskanie produkcji</div>
+          </div>
+        </div>
+
+        <div class="hero-showcase reveal delay-1" aria-label="Wizualizacja problemu wysokiego napięcia PV">
+          <div class="showcase-main glass">
+            <div class="showcase-bg" aria-hidden="true"></div>
+            <div class="showcase-content">
+              <div class="voltage-panel glass-strong">
+                <div class="panel-title">
+                  <div class="warning-icon">!</div>
+                  <div>
+                    <p>Alarm sieci</p>
+                    <h3>Zbyt wysokie napięcie</h3>
+                  </div>
+                </div>
+                <div class="phase-list">
+                  <div><span>L1</span><strong>253 V</strong></div>
+                  <div><span>L2</span><strong>255 V</strong></div>
+                  <div><span>L3</span><strong>257 V</strong></div>
+                </div>
+                <div class="status-alert">Status: falownik wyłączony</div>
+              </div>
+
+              <div class="mini-benefits">
+                <div><i data-icon="zap"></i><strong>Więcej energii</strong></div>
+                <div><i data-icon="bars"></i><strong>Mniej strat</strong></div>
+                <div><i data-icon="check"></i><strong>Pełna kontrola</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-side">
+            <div class="glass side-card problem-card">
+              <p class="mini-label">Problem 253–257 V</p>
+              <h3>Sprawdź przyczynę i odzyskaj produkcję</h3>
+              <p>Mierzymy napięcie, analizujemy tor AC i dobieramy najtańsze skuteczne rozwiązanie.</p>
+            </div>
+            <div class="inverter-card glass" aria-label="Ilustracja falownika PV">
+              <div class="inverter-box">
+                <div class="inv-head">PV inverter</div>
+                <div class="inv-display"><span></span><span></span><span></span></div>
+                <div class="inv-cables"><b></b><b></b><b></b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-wrap">
+      <div class="container">
+        <div class="trust-bar glass reveal">
+          <div><strong>Exeliq Prime Sp. z o.o.</strong><span>ul. Stawna 2, 62-052 Komorniki</span></div>
+          <div><strong>NIP</strong><span>7773396340</span></div>
+          <div><strong>KRS</strong><span>0000997609</span></div>
+          <div><strong>REGON</strong><span>52343737300000</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="oferta" class="section-pad">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow"><span></span>Zakres usługi</div>
+          <h2>Co dokładnie sprawdzamy?</h2>
+          <p>Usługa jest zaprojektowana dla osób, którym falownik PV ogranicza pracę lub wyłącza się przez zbyt wysokie napięcie sieci.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card glass reveal"><i data-icon="gauge"></i><h3>Diagnostyka napięcia</h3><p>Pomiar L1/L2/L3 przy falowniku, rozdzielnicy i punkcie wpięcia PV.</p></article>
+          <article class="service-card glass reveal delay-1"><i data-icon="sliders"></i><h3>Ustawienia falownika</h3><p>Weryfikacja mocy biernej, limitów mocy, profilu sieci i regulacji napięcia.</p></article>
+          <article class="service-card glass reveal delay-2"><i data-icon="plug"></i><h3>Sprawdzenie przewodu AC</h3><p>Ocena przekroju, długości, zacisków, aparatów oraz wzrostu napięcia.</p></article>
+          <article class="service-card glass reveal delay-3"><i data-icon="report"></i><h3>Raport do OSD</h3><p>Czytelny materiał techniczny do rozmowy z operatorem lub modernizacji instalacji.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnostyka" class="section-pad pt-small">
+      <div class="container split-grid">
+        <div class="glass info-card reveal">
+          <div class="eyebrow"><span></span>Dlaczego tak się dzieje?</div>
+          <h2>Problem często jest między falownikiem a siecią.</h2>
+          <p>Przy pracy PV prąd płynie od falownika do sieci. Na długim lub zbyt małym przewodzie AC napięcie przy falowniku może być wyraźnie wyższe niż przy liczniku. Dlatego operator może widzieć 246 V, a falownik wyłączać się przy 255–257 V.</p>
+          <ul class="check-list">
+            <li>Porównujemy napięcie przy falowniku i przy punkcie wpięcia.</li>
+            <li>Sprawdzamy przewód AC, zabezpieczenia, zaciski i asymetrię faz.</li>
+            <li>Wskazujemy najtańsze skuteczne rozwiązanie techniczne.</li>
+          </ul>
+        </div>
+        <div class="diagnostic-stack reveal delay-1">
+          <div class="photo-card photo-roof" aria-label="Panele fotowoltaiczne bez ludzi"></div>
+          <div class="glass measurement-card">
+            <p class="mini-label">Przykład pomiaru</p>
+            <div class="diagnostic-row"><span>Punkt wpięcia</span><strong>246 V</strong></div>
+            <div class="diagnostic-row"><span>Falownik</span><strong>256 V</strong></div>
+            <div class="diagnostic-note">Różnica napięcia wskazuje na tor AC lub punkt przyłączenia.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pt-small">
+      <div class="container calculator-grid">
+        <div class="glass calculator reveal">
+          <div class="calc-title">
+            <i data-icon="bars"></i>
+            <div>
+              <h2>Ile produkcji możesz tracić?</h2>
+              <p>Szybka estymacja miesięcznych strat przy wyłączaniu falownika.</p>
+            </div>
+          </div>
+          <div class="inputs-grid">
+            <label>Moc instalacji <span><input id="kwp" type="number" min="0" step="0.1" value="10" /> kWp</span></label>
+            <label>Wyłączeń dziennie <span><input id="hours" type="number" min="0" step="0.5" value="2.5" /> h</span></label>
+            <label>Dni w miesiącu <span><input id="days" type="number" min="0" step="1" value="22" /> dni</span></label>
+          </div>
+          <div class="calc-result">
+            <p>Szacowana utrata produkcji miesięcznie</p>
+            <strong><span id="lossResult">451</span> kWh</strong>
+            <small>Wynik orientacyjny. Dokładną przyczynę ustalamy na podstawie pomiarów.</small>
+          </div>
+        </div>
+
+        <div class="glass benefits-card reveal delay-1">
+          <div class="eyebrow"><span></span>Efekt dla klienta</div>
+          <h2>Dostajesz konkretną diagnozę, nie zgadywanie.</h2>
+          <ul class="check-list">
+            <li>Więcej odzyskanej energii.</li>
+            <li>Mniej wyłączeń falownika.</li>
+            <li>Konkretny plan działania.</li>
+            <li>Dokumentacja do operatora lub modernizacji AC.</li>
+          </ul>
+          <div class="goal-box"><strong>Cel usługi:</strong><span>Ustalić najtańszy realny sposób ograniczenia wyłączeń falownika i odzyskania produkcji PV.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pakiety" class="section-pad pt-small">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow"><span></span>Pakiety</div>
+          <h2>Wybierz zakres diagnostyki</h2>
+          <p>Ceny i zakres można dopasować do lokalizacji, typu instalacji i dostępności rozdzielnicy/licznika.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card glass reveal">
+            <div class="tag">Start</div><h3>Diagnostyka napięcia</h3><strong>od 490 zł</strong>
+            <ul><li>Pomiar L1/L2/L3</li><li>Ocena objawów falownika</li><li>Wstępne zalecenia</li></ul>
+            <a class="btn btn-secondary" href="#formularz">Wybierz pakiet</a>
+          </article>
+          <article class="price-card glass featured reveal delay-1">
+            <div class="tag">Najczęściej wybierany</div><h3>Diagnostyka + nastawy</h3><strong>od 790 zł</strong>
+            <ul><li>Pomiary w kilku punktach</li><li>Konfiguracja falownika</li><li>Ocena przewodu AC</li><li>Krótki raport PDF</li></ul>
+            <a class="btn btn-primary" href="#formularz">Wybierz pakiet</a>
+          </article>
+          <article class="price-card glass reveal delay-2">
+            <div class="tag">Pełny zakres</div><h3>Raport OSD + modernizacja</h3><strong>indywidualnie</strong>
+            <ul><li>Dokumentacja zdjęciowa</li><li>Raport do operatora</li><li>Wycena poprawy AC</li><li>Plan odzyskania produkcji</li></ul>
+            <a class="btn btn-secondary" href="#formularz">Wybierz pakiet</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section-pad pt-small">
+      <div class="container faq-grid">
+        <div class="section-head left reveal">
+          <div class="eyebrow"><span></span>FAQ</div>
+          <h2>Najczęstsze pytania</h2>
+          <p>Krótko i technicznie — bez obiecywania rzeczy, które zależą od operatora sieci.</p>
+        </div>
+        <div class="faq-list reveal delay-1">
+          <details class="glass"><summary>Czy zawsze winny jest operator sieci?</summary><p>Nie. Często problem powstaje na odcinku AC między falownikiem a punktem wpięcia: zbyt długi przewód, zbyt mały przekrój, słaby zacisk albo nieoptymalne ustawienia falownika.</p></details>
+          <details class="glass"><summary>Czy można po prostu podnieść próg napięcia w falowniku?</summary><p>Nie rekomendujemy obchodzenia zabezpieczeń. Najpierw trzeba ustalić przyczynę i dobrać bezpieczne rozwiązanie techniczne.</p></details>
+          <details class="glass"><summary>Co jeśli operator mówi, że napięcie jest prawidłowe?</summary><p>Wtedy porównujemy napięcie przy falowniku i przy punkcie wpięcia. Często operator widzi napięcie poprawne, a falownik wyłącza się przez wzrost napięcia na instalacji AC.</p></details>
+          <details class="glass"><summary>Czy obsługujecie tylko Sofar?</summary><p>Nie. Diagnostyka dotyczy wielu marek falowników. Najważniejsze są pomiary, analiza toru AC i poprawna konfiguracja urządzenia.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pt-small final-section">
+      <div class="container final-grid">
+        <div class="final-card glass reveal">
+          <h2>Nie trać produkcji w najlepsze dni roku.</h2>
+          <p>Jeśli falownik pokazuje GridOVP, Over Voltage albo napięcie dochodzi do 253–257 V — zacznij od diagnostyki i pomiaru.</p>
+          <div class="cta-row"><a class="btn btn-primary" href="#formularz">Umów diagnostykę</a><a class="btn btn-secondary" href="tel:+48790581583">Zadzwoń teraz</a></div>
+          <div class="contact-mini"><span>ul. Stawna 2, 62-052 Komorniki</span><span>ml@exeliq.pl</span></div>
+        </div>
+        <form id="formularz" class="lead-form glass reveal delay-1" action="https://formspree.io/f/TWOJ_ID_FORMULARZA" method="POST">
+          <div class="eyebrow"><span></span>Bezpłatna wstępna kwalifikacja</div>
+          <h2>Umów diagnostykę napięcia PV</h2>
+          <p>Zostaw dane. Oddzwonimy i powiemy, co sprawdzić przed wizytą.</p>
+          <input name="name" required placeholder="Imię i nazwisko" />
+          <input name="phone" required placeholder="Telefon" />
+          <input name="location" placeholder="Miejscowość / kod pocztowy" />
+          <input name="inverter" placeholder="Model falownika, np. Sofar / Huawei / Fronius" />
+          <textarea name="message" rows="4" placeholder="Objawy, np. GridOVP, 253–257 V, wyłącza się między 10:00 a 15:00"></textarea>
+          <button class="btn btn-primary" type="submit">Wyślij zgłoszenie</button>
+          <small>Po wdrożeniu podmień link Formspree na własny identyfikator formularza.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <a href="#formularz" class="mobile-sticky">Umów diagnostykę</a>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <img src="assets/exeliq_.png" alt="EXELIQ Group" />
+      <div><strong>Exeliq Prime Sp. z o.o.</strong><span>ul. Stawna 2, 62-052 Komorniki</span><span>NIP: 7773396340 · KRS: 0000997609 · REGON: 52343737300000</span></div>
+      <div class="footer-contact"><a href="tel:+48790581583">790 581 583</a><a href="mailto:ml@exeliq.pl">ml@exeliq.pl</a><span>© <span id="year"></span> EXELIQ Group</span></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
