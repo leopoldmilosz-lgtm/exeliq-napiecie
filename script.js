@@ -14,27 +14,49 @@
   reveals.forEach((el) => observer.observe(el));
 
   const kwp = document.getElementById('kwp');
-  const hours = document.getElementById('hours');
+  const outages = document.getElementById('outages');
   const days = document.getElementById('days');
   const price = document.getElementById('price');
   const lossResult = document.getElementById('lossResult');
   const lossValueResult = document.getElementById('lossValueResult');
   const priceLabel = document.getElementById('priceLabel');
+  const outageInfo = document.getElementById('outageInfo');
 
   function updateLoss() {
-    if (!kwp || !hours || !days || !lossResult) return;
-    const value = Math.max(0, Math.round(Number(kwp.value || 0) * Number(hours.value || 0) * Number(days.value || 0) * 0.82));
+    if (!kwp || !outages || !days || !lossResult) return;
+
+    const outageCount = Math.max(0, Number(outages.value || 0));
+    const outageHours = outageCount * 0.25; // 1 wyłączenie = 15 min = 0,25 h
+    const value = Math.max(0, Math.round(Number(kwp.value || 0) * outageHours * Number(days.value || 0) * 0.82));
     const energyPrice = Math.max(0, Number(price?.value || 0));
     const valuePLN = value * energyPrice;
+
     lossResult.textContent = value.toLocaleString('pl-PL');
+
     if (lossValueResult) {
-      lossValueResult.textContent = valuePLN.toLocaleString('pl-PL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+      lossValueResult.textContent = valuePLN.toLocaleString('pl-PL', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
     }
+
     if (priceLabel) {
-      priceLabel.textContent = energyPrice.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      priceLabel.textContent = energyPrice.toLocaleString('pl-PL', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    if (outageInfo) {
+      outageInfo.textContent =
+        `Przeliczenie: ${outageCount.toLocaleString('pl-PL')} szt. × 15 min = ${outageHours.toLocaleString('pl-PL', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })} h przerwy dziennie.`;
     }
   }
-  [kwp, hours, days, price].forEach((input) => input && input.addEventListener('input', updateLoss));
+
+  [kwp, outages, days, price].forEach((input) => input && input.addEventListener('input', updateLoss));
   updateLoss();
 
   const canvas = document.getElementById('particleCanvas');
