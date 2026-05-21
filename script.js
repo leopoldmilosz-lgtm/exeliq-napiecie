@@ -16,14 +16,25 @@
   const kwp = document.getElementById('kwp');
   const hours = document.getElementById('hours');
   const days = document.getElementById('days');
+  const price = document.getElementById('price');
   const lossResult = document.getElementById('lossResult');
+  const lossValueResult = document.getElementById('lossValueResult');
+  const priceLabel = document.getElementById('priceLabel');
 
   function updateLoss() {
     if (!kwp || !hours || !days || !lossResult) return;
     const value = Math.max(0, Math.round(Number(kwp.value || 0) * Number(hours.value || 0) * Number(days.value || 0) * 0.82));
+    const energyPrice = Math.max(0, Number(price?.value || 0));
+    const valuePLN = value * energyPrice;
     lossResult.textContent = value.toLocaleString('pl-PL');
+    if (lossValueResult) {
+      lossValueResult.textContent = valuePLN.toLocaleString('pl-PL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+    if (priceLabel) {
+      priceLabel.textContent = energyPrice.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
   }
-  [kwp, hours, days].forEach((input) => input && input.addEventListener('input', updateLoss));
+  [kwp, hours, days, price].forEach((input) => input && input.addEventListener('input', updateLoss));
   updateLoss();
 
   const canvas = document.getElementById('particleCanvas');
