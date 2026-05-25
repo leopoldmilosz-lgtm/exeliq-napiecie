@@ -61,14 +61,13 @@
 
 
 
-  const leadForm = document.getElementById('formularz');
-  if (leadForm) {
-    leadForm.addEventListener('submit', async (event) => {
-      const action = leadForm.getAttribute('action') || '';
-      const redirectUrl = leadForm.dataset.redirect || 'dziekujemy.html';
-      const submitButton = leadForm.querySelector('button[type="submit"]');
+  const formspreeForms = document.querySelectorAll('form[data-formspree="true"]');
+  formspreeForms.forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      const action = form.getAttribute('action') || '';
+      const redirectUrl = form.dataset.redirect || 'dziekujemy.html';
+      const submitButton = form.querySelector('button[type="submit"]');
 
-      // Formspree endpoint must be replaced before publication.
       if (!action || action.includes('TWOJ_ID_FORMULARZA')) {
         event.preventDefault();
         alert('Formularz nie ma jeszcze podmienionego endpointu Formspree.');
@@ -86,7 +85,7 @@
       try {
         const response = await fetch(action, {
           method: 'POST',
-          body: new FormData(leadForm),
+          body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
 
@@ -113,7 +112,7 @@
         }
       }
     });
-  }
+  });
 
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;

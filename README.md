@@ -55,3 +55,13 @@ Pamiętaj podmienić endpoint Formspree w `index.html`:
 ```html
 action="https://formspree.io/f/TWOJ_ID_FORMULARZA"
 ```
+
+
+## Lead magnet
+
+Dodano sekcję pobrania checklisty 253 V. Pliki:
+- `assets/Checklista_253V_EXELIQ_Group_1do1.pdf`
+- `assets/checklista-cover.png`
+- `dziekujemy-checklista.html`
+
+Endpoint Formspree ustawiony: `https://formspree.io/f/mbdbogog`.

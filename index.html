@@ -10,6 +10,7 @@
   <meta property="og:description" content="Diagnostyka wysokiego napięcia PV: pomiary L1/L2/L3, ustawienia falownika, przewód AC i raport do OSD." />
   <meta property="og:type" content="website" />
   <link rel="preload" href="assets/exeliq_.png" as="image" />
+  <link rel="preload" href="assets/checklista-cover.png" as="image" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-980913972"></script>
@@ -48,13 +49,14 @@ src="https://www.facebook.com/tr?id=2146941939417183&ev=PageView&noscript=1"
         <img src="assets/exeliq_.png" alt="EXELIQ Group" />
       </a>
       <nav class="nav-links" aria-label="Menu główne">
+        <a href="#checklista">Checklista</a>
         <a href="#oferta">Zakres</a>
         <a href="#diagnostyka">Diagnostyka</a>
         <a href="#pakiety">Pakiety</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-primary btn-small" href="#formularz">Umów pomiar</a>
+        <a class="btn btn-primary btn-small" href="#checklista">Pobierz checklistę</a>
       </div>
     </div>
   </header>
@@ -69,11 +71,11 @@ src="https://www.facebook.com/tr?id=2146941939417183&ev=PageView&noscript=1"
             <span>wyłącza się</span>
             <span>w słoneczne dni?</span>
           </h1>
-          <p class="lead">Masz 253–257 V i tracisz produkcję?</p>
-          <p class="hero-text">Sprawdzimy, czy winna jest sieć, przewód AC czy ustawienia falownika. Wykonujemy pomiary, diagnostykę, korektę nastaw oraz raport techniczny do operatora.</p>
+          <p class="lead">Pobierz bezpłatną checklistę 253 V i sprawdź przyczynę.</p>
+          <p class="hero-text">Masz 253–257 V, GridOVP albo Over Voltage? Zacznij od checklisty, zbierz kluczowe dane i sprawdź, czy problem wygląda na sieć, przewód AC, punkt wpięcia czy ustawienia falownika.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#formularz">Umów diagnostykę</a>
-            <a class="btn btn-secondary" href="#oferta">Zobacz zakres usługi</a>
+            <a class="btn btn-primary" href="#checklista">Pobierz checklistę</a>
+            <a class="btn btn-secondary" href="#formularz">Umów diagnostykę</a>
           </div>
           <div class="hero-badges" aria-label="Najważniejsze korzyści">
             <div><i data-icon="shield"></i>Bezpieczne nastawy</div>
@@ -143,6 +145,47 @@ src="https://www.facebook.com/tr?id=2146941939417183&ev=PageView&noscript=1"
               <small>Przy założeniu wartości energii <span id="priceLabel">1,00</span> zł/kWh.</small>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="checklista" class="section-pad checklist-section">
+      <div class="container checklist-grid glass reveal">
+        <div class="checklist-copy">
+          <div class="eyebrow"><span></span>Bezpłatny materiał PDF</div>
+          <h2>Pobierz checklistę 253 V</h2>
+          <p class="checklist-lead">7 przyczyn wyłączania falownika PV w słoneczne dni — zanim zgłosisz sprawę do operatora albo zamówisz kosztowną modernizację.</p>
+          <div class="checklist-points">
+            <div><i data-icon="check"></i><span>Sprawdź, czy problemem jest sieć, przewód AC, asymetria faz, ustawienia falownika czy punkt wpięcia.</span></div>
+            <div><i data-icon="check"></i><span>Zbierz dane: napięcia L1/L2/L3, godziny wyłączeń, kod błędu, moc instalacji i długość przewodu AC.</span></div>
+            <div><i data-icon="check"></i><span>Zobacz, kiedy sama checklista nie wystarczy i warto wykonać pomiar porównawczy.</span></div>
+          </div>
+          <div class="checklist-actions">
+            <a class="btn btn-primary" href="#checklista-form">Pobierz checklistę</a>
+            <a class="btn btn-secondary" href="assets/Checklista_253V_EXELIQ_Group_1do1.pdf" target="_blank" rel="noopener">Podgląd PDF</a>
+          </div>
+        </div>
+
+        <div class="checklist-form-col" id="checklista-form">
+          <a class="checklist-cover" href="assets/Checklista_253V_EXELIQ_Group_1do1.pdf" target="_blank" rel="noopener" aria-label="Podgląd checklisty 253 V">
+            <img src="assets/checklista-cover.png" alt="Checklista 253 V EXELIQ Group" loading="lazy" />
+          </a>
+          <form id="formularz-checklista" class="lead-form checklist-form" action="https://formspree.io/f/mbdbogog" method="POST" data-redirect="dziekujemy-checklista.html" data-formspree="true">
+            <input type="hidden" name="_subject" value="Nowy lead - Checklista 253 V" />
+            <input type="hidden" name="lead_type" value="Checklista 253 V" />
+            <input type="hidden" name="landing_page" value="napiecie.exeliq.pl" />
+            <div class="eyebrow"><span></span>Wyślij i pobierz PDF</div>
+            <h2>Odbierz checklistę</h2>
+            <p>Zostaw dane. Po wysłaniu formularza przejdziesz na stronę z linkiem do PDF.</p>
+            <input name="name" required placeholder="Imię" autocomplete="given-name" />
+            <input name="phone" required placeholder="Telefon" autocomplete="tel" />
+            <input name="email" required type="email" placeholder="E-mail" autocomplete="email" />
+            <input name="location" placeholder="Miejscowość" autocomplete="address-level2" />
+            <input name="inverter" placeholder="Marka/model falownika — opcjonalnie" />
+            <button class="btn btn-primary" type="submit">Wyślij i pobierz checklistę</button>
+            <small>Zero spamu. Materiał informacyjny dla właścicieli instalacji PV z problemem wyłączania falownika.</small>
+          </form>
         </div>
       </div>
     </section>
@@ -250,11 +293,12 @@ src="https://www.facebook.com/tr?id=2146941939417183&ev=PageView&noscript=1"
       <div class="container final-grid">
         <div class="final-card glass reveal">
           <h2>Nie trać produkcji w najlepsze dni roku.</h2>
-          <p>Jeśli falownik pokazuje GridOVP, Over Voltage albo napięcie dochodzi do 253–257 V — zacznij od diagnostyki i pomiaru.</p>
-          <div class="cta-row"><a class="btn btn-primary" href="#formularz">Umów diagnostykę</a><a class="btn btn-secondary" href="tel:+48790581583">Zadzwoń teraz</a></div>
+          <p>Jeśli falownik pokazuje GridOVP, Over Voltage albo napięcie dochodzi do 253–257 V — zacznij od checklisty albo umów pomiar, gdy problem powtarza się codziennie.</p>
+          <div class="cta-row"><a class="btn btn-primary" href="#checklista">Pobierz checklistę</a><a class="btn btn-secondary" href="tel:+48790581583">Zadzwoń teraz</a></div>
         </div>
-        <form id="formularz" class="lead-form glass reveal delay-1" action="https://formspree.io/f/mbdbogog" method="POST" data-redirect="dziekujemy.html">
+        <form id="formularz" class="lead-form glass reveal delay-1" action="https://formspree.io/f/mbdbogog" method="POST" data-redirect="dziekujemy.html" data-formspree="true">
           <input type="hidden" name="_subject" value="Nowy lead - diagnostyka napięcia PV" />
+          <input type="hidden" name="lead_type" value="Diagnostyka napięcia PV" />
           <input type="hidden" name="landing_page" value="napiecie.exeliq.pl" />
           <div class="eyebrow"><span></span>Bezpłatna wstępna kwalifikacja</div>
           <h2>Umów diagnostykę napięcia PV</h2>
@@ -270,7 +314,7 @@ src="https://www.facebook.com/tr?id=2146941939417183&ev=PageView&noscript=1"
     </section>
   </main>
 
-  <a href="#formularz" class="mobile-sticky">Umów diagnostykę</a>
+  <a href="#checklista" class="mobile-sticky">Pobierz checklistę 253 V</a>
 
   <footer class="site-footer">
     <div class="container footer-grid">
